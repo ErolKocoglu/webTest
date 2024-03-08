@@ -1,0 +1,33 @@
+#container {
+    display: flex;
+    margin: auto;
+    margin-top: 30px;
+    justify-content: center;
+    background-color: rgba(43, 192, 197,0.5);
+    width: 40%;
+    border-radius: 0.9em;
+}
+
+body {
+    background-image: url("https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#button_div {
+    display: flex;
+    justify-content: space-around;
+}
+
+#courses {
+    display: flex;
+    flex-direction: column;
+}
+
+div {
+    margin:15px;
+    
+}
