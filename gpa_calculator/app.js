@@ -2,6 +2,7 @@ const add_button=document.querySelector("#add_button");
 const reset_button=document.querySelector("#reset_button");
 const courses_div=document.querySelector("#courses");
 const result = document.querySelector("#result");
+const calculate_button=document.querySelector("#calculate_button");
 
 const grades =["Grade","AA","BA","BB","CB","CC","DC","DD","FF"];
 
@@ -38,8 +39,20 @@ function letter_grade_to_number(letter){
 }
 
 function calculate(){
-
+    let total=0;
+    let num_grade=0;
+    let total_credit=0;
+    for (let i=0;i<courses_div.children.length;i++){
+        const course=courses_div.children[i];
+        total_credit+=parseInt(course.children[0].value);
+        num_grade=letter_grade_to_number(course.children[1].value);
+        total+=num_grade*parseInt(course.children[0].value)
+    }
+    const average=total/total_credit;
+    result.value=average.toFixed(2);
 }
+
+calculate_button.addEventListener("click",calculate);
 
 add_button.addEventListener("click", ()=>{
     const course=document.createElement("div");
