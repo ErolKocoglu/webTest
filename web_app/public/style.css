@@ -1,8 +1,12 @@
 body {
-    background-color: rgb(109, 138, 218);
+    background-color: rgb(65, 104, 197);
 }
 
 h1, h2 {
     text-align: center;
     background-color: bisque;
+}
+
+div {
+    background-color: aquamarine;
 }

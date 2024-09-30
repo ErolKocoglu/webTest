@@ -51,6 +51,12 @@ app.get("/students", (req, res) =>{
     
 });
 
+app.get("/students/:id", (req, res) =>{
+    const {id} =req.params;
+    const student = students.find(s => s.id === parseInt(id));
+    res.render("student", {student});
+});
+
 app.get("/:word", (req,res)=>{
     const {word} =req.params;
     res.render("home",{word});
