@@ -4,6 +4,10 @@ const path =require("path");
 
 app.use(express.static(path.join(__dirname, "public")));
 
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
@@ -46,12 +50,12 @@ app.get("/students", (req, res) =>{
         console.log(req.query);
         res.send(`<h2>Results for ${id}</h2>`);
     }else{
-        res.render("students",{students});
+        res.render("students",{students});//for all students
     }
     
 });
 
-app.get("/students/:id", (req, res) =>{
+app.get("/students/:id", (req, res) =>{//for one student
     const {id} =req.params;
     const student = students.find(s => s.id === parseInt(id));
     res.render("student", {student});
