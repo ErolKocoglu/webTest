@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
 const path =require("path");
+const method_override =require("method-override");
 const { v4: uuidv4 } = require('uuid');
 
 
 
 app.use(express.static(path.join(__dirname, "public")));
-
+app.use(method_override("_method"));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -63,7 +64,7 @@ app.get("/students/new", (req, res) => {// sending form to create a student
 
 });
 
-app.post("/students", (req,res) => {
+app.post("/students", (req,res) => {//create new student, push it to the array
     const {name, gpa} =req.body;
     students.push({id:uuidv4(),name,gpa});
     res.redirect("/students");
@@ -73,6 +74,21 @@ app.get("/students/:id", (req, res) =>{//for one student
     const {id} =req.params;
     const student = students.find(s => s.id === id);
     res.render("student", {student});
+});
+
+app.get("/students/:id/edit", (req,res) => {//send form to edit student
+    const {id} = req.params;
+    const student = students.find(s => s.id === id);
+    res.render("edit_form", {student});
+
+});
+
+app.patch("/students/:id", (req,res) => {
+    const {id} = req.params;
+    const student = students.find(s => s.id === id);
+    student.gpa =req.body.gpa;
+    student.name=req.body.name;
+    res.redirect("/students");
 });
 
 app.get("/:word", (req,res)=>{
