@@ -55,6 +55,17 @@ app.get("/students", (req, res) =>{
     
 });
 
+app.get("/students/new", (req, res) => {// sending form to create a student
+    res.render("new_form");
+
+});
+
+app.post("/students", (req,res) => {
+    const {name, gpa} =req.body;
+    students.push({id:0,name,gpa});
+    res.redirect("/students");
+});
+
 app.get("/students/:id", (req, res) =>{//for one student
     const {id} =req.params;
     const student = students.find(s => s.id === parseInt(id));
