@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 const path =require("path");
+const { v4: uuidv4 } = require('uuid');
+
+
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -13,22 +16,22 @@ app.set("views", path.join(__dirname, "/views"));
 
 let students = [
     {
-        id:1,
+        id:uuidv4(),
         name:"John Doe",
         gpa: 3.90 
     },
     {
-        id:2,
+        id:uuidv4(),
         name:"Kit Walker",
         gpa: 3.65
     },
     {
-        id:3,
+        id:uuidv4(),
         name:"Jude Martin",
         gpa:3.42
     },
     {
-        id:4,
+        id:uuidv4(),
         name: "Will Graham",
         gpa: 2.95
     }
@@ -62,13 +65,13 @@ app.get("/students/new", (req, res) => {// sending form to create a student
 
 app.post("/students", (req,res) => {
     const {name, gpa} =req.body;
-    students.push({id:0,name,gpa});
+    students.push({id:uuidv4(),name,gpa});
     res.redirect("/students");
 });
 
 app.get("/students/:id", (req, res) =>{//for one student
     const {id} =req.params;
-    const student = students.find(s => s.id === parseInt(id));
+    const student = students.find(s => s.id === id);
     res.render("student", {student});
 });
 
