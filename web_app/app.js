@@ -91,6 +91,12 @@ app.patch("/students/:id", (req,res) => {
     res.redirect("/students");
 });
 
+app.delete("/students/:id", (req,res) => {//delete a student
+    const {id} =req.params;
+    students = students.filter(s => s.id !==id);
+    res.redirect("/students");
+});
+
 app.get("/:word", (req,res)=>{
     const {word} =req.params;
     res.render("home",{word});
