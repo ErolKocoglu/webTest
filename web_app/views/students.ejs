@@ -8,14 +8,19 @@
     <title>Students</title>
 </head>
 <body>
-    <div class="w-75">
-        <ul>
+    <a href="/students/new"> <button class="btn btn-primary">Add new student</button></a>
+    <section id="s_container">
+        <div class="w-75 students">
+        
             <% for(let s of students) {%>
-                <li><a href="/students/<%=s.id%>"><%= s.id %> <%= s.name %></a></li>
+                <div class="student"><a href="/students/<%=s.id%>"><%= s.id %><br> <%= s.name %></a></div>
             <% } %>
-        </ul>
-
-        <a href="/students/new"> Add new student</a>
-    </div>
+        
+                
+        </div>
+        
+        
+    </section>
+    
 </body>
 </html>

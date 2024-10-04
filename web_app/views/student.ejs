@@ -15,7 +15,7 @@
         <%= student?.gpa %> <br>
         <a href="/students/<%=student?.id%>/edit"> Edit</a>
         <form action="/students/<%=student?.id%>/?_method=DELETE" method="post">
-            <button type="submit">Delete</button>
+            <button type="submit" class="btn btn-danger">Delete</button>
         </form>
     </div>
             

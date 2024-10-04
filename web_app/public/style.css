@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(65, 104, 197);
+    background-color: rgb(205, 195, 212);
 }
 
 h1, h2 {
@@ -7,6 +7,29 @@ h1, h2 {
     background-color: bisque;
 }
 
+a {
+    text-decoration: none;
+}
+
 div {
-    background-color: aquamarine;
+    background-color: rgb(228, 193, 186);
+}
+
+.students {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+
+.student {
+    width:30%;
+    background-color: blanchedalmond;
+    margin:5px;
+    text-align: center;
+}
+
+#s_container {
+    display: flex;
+    justify-content: center;
+    
 }
