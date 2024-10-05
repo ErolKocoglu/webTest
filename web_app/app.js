@@ -50,9 +50,23 @@ app.get("/search", (req,res) =>{
 
 app.get("/students", (req, res) =>{
     if(!(Object.keys(req.query).length === 0)){
-        const {id} = req.query;
+        const {name} = req.query;//search student by name
         console.log(req.query);
-        res.send(`<h2>Results for ${id}</h2>`);
+        const student = {id:"none",name:"none",gpa:0.0};
+        for(let s of students){
+            if(s.name ===name){
+                student.gpa=s.gpa;
+                student.id=s.id;
+                student.name=s.name;
+            }
+        }
+
+        if(student.id ==="none"){
+            res.send("<h1>There is no student with that name");
+        }else{
+            res.render("student",{student});
+        }
+
     }else{
         res.render("students",{students});//for all students
     }
