@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(205, 195, 212);
+    background-color: rgb(151, 184, 211);
 }
 
 h1, h2 {
@@ -32,4 +32,15 @@ div {
     display: flex;
     justify-content: center;
     
+}
+
+#form_div {
+    margin: 20px;
+}
+#form_div form label {
+    width: 120px;
+}
+
+#form_div form input {
+    margin: 5px;
 }
