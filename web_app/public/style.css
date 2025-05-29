@@ -1,14 +1,18 @@
 body {
-    background-color: rgb(151, 184, 211);
+    background-color: #f5f7fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
 }
 
 h1, h2 {
     text-align: center;
-    background-color: bisque;
+    color: #2c3e50;
+    margin-bottom: 30px;
 }
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 div {
@@ -16,31 +20,90 @@ div {
 }
 
 .students {
-    display:flex;
-    flex-wrap: wrap;
-    justify-content:space-between;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .student {
-    width:30%;
-    background-color: blanchedalmond;
-    margin:5px;
-    text-align: center;
+    width: 100%;
+    background-color: white;
+    text-align: left;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.student:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.student a {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #2c3e50;
+    width: 100%;
+}
+
+.student a:hover {
+    color: #3498db;
 }
 
 #s_container {
     display: flex;
     justify-content: center;
-    
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
 }
 
 #form_div {
     margin: 20px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 #form_div form label {
     width: 120px;
+    color: #2c3e50;
+    font-weight: 500;
 }
 
 #form_div form input {
     margin: 5px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+}
+
+#form_div form input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
 }
